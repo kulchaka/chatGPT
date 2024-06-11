@@ -6,7 +6,6 @@ import "./App.css"
 
 function App() {
   const [form] = Form.useForm()
-  // const [data, setData] = useState([])
   useEffect(() => {
     try {
       const response = axios.post("http://localhost:3000/data")
@@ -18,6 +17,7 @@ function App() {
 
   const onFinish = () => {
     console.log("💡 ~ onFinish ~ form:", form.getFieldsValue())
+    form.resetFields()
   }
   return (
     <Flex gap='middle' vertical>
