@@ -1,12 +1,14 @@
 import cors from "cors"
+import dotenv from "dotenv"
 import express from "express"
 import OpenAI from "openai"
 
+dotenv.config()
 const app = express()
 const port = 3000
 
 const openAi = new OpenAI({
-  apiKey: "sk-proj-3Zfwwbbsb0nu6UrnRMPjT3BlbkFJI5KiyOF2dtx8mIvNihLt",
+  apiKey: process.env["API_KEY"],
 })
 
 app.use(cors())
@@ -18,7 +20,7 @@ app.post("/data", async (req, res) => {
       model: "gpt-3.5-turbo",
     })
     console.log("💡 ~ app.post ~ chatCompletion:", chatCompletion)
-    res.json(chatCompletion)
+    res.json(chatCompletion.choices[0].message)
   } catch (error) {
     console.error("Error:", error)
     res.status(500).send("Error processing request")
