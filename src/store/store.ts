@@ -14,11 +14,7 @@ export type Store = {
 
 export const useStore = create<Store>()((set) => ({
   data: [],
-  updData: (payload) => {
-    console.log("🐧 ~ useStore ~ payload:", payload)
-
-    set((state) => ({ data: [...state.data, payload] }))
-  },
+  updData: (payload) => set((state) => ({ data: [...state.data, payload] })),
   isLoadingData: false,
   setIsLoadingData: (payload) => set(() => ({ isLoadingData: payload })),
 }))

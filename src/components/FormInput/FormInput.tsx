@@ -17,11 +17,9 @@ const FormInput = () => {
   }
 
   const postData = async (message: iForm) => {
-    console.log("💡 ~ postData ~ message:", message)
     setIsLoadingData(true)
     try {
       const response = await axios.post<iData>("http://localhost:3000/data", { message })
-      console.log("💡 ~ postData ~ response:", response)
       updData(response.data)
     } catch (error) {
       console.error("Error:", error)
@@ -33,8 +31,7 @@ const FormInput = () => {
 
   const onFinish = async (fieldsValue: iForm) => {
     form.resetFields()
-    // fieldsValue.content = fieldsValue.content.trim()
-    console.log("💡 ~ onFinish ~ fieldsValue:", fieldsValue)
+    fieldsValue.content = fieldsValue.content.trim()
     if (fieldsValue?.content?.length > 0) {
       await postData(fieldsValue)
     }
@@ -45,7 +42,7 @@ const FormInput = () => {
         <Form form={form} onFinish={onFinish}>
           <Form.Item name='content'>
             <Space.Compact style={{ width: "100%" }}>
-              <Input className='input' placeholder='Ask anything ☺️' />
+              <Input className='input' placeholder='💭 Ask something ☺️' />
               <Button
                 className='button'
                 htmlType='submit'
