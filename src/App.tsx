@@ -1,43 +1,17 @@
-import { Button, Flex, Form, Input, Space } from "antd"
-import axios from "axios"
-import { useEffect } from "react"
-import { FaLocationArrow } from "react-icons/fa6"
 import "./App.scss"
+import ChatLine from "./components/ChatLine/ChatLine"
+import FormInput from "./components/FormInput/FormInput"
+import { useStore } from "./store/store"
+export interface iForm {
+  content: string
+}
 
 function App() {
-  const [form] = Form.useForm()
-  useEffect(() => {
-    try {
-      const response = axios.post("http://localhost:3000/data")
-      console.log("💡 ~ useEffect ~ response:", response)
-    } catch (error) {
-      console.error(error)
-    }
-  }, [])
-
-  const onFinish = () => {
-    console.log("💡 ~ onFinish ~ form:", form.getFieldsValue())
-    form.resetFields()
-  }
+  const { data } = useStore()
   return (
     <div className='block'>
-      <Flex gap='middle' vertical>
-        <Flex vertical={true}>
-          <Form form={form} onFinish={onFinish}>
-            <Form.Item name='text'>
-              <Space.Compact style={{ width: "100%" }}>
-                <Input className='input' placeholder='Ask anything ☺️' />
-                <Button
-                  className='button'
-                  htmlType='submit'
-                  icon={<FaLocationArrow />}
-                  type='primary'
-                />
-              </Space.Compact>
-            </Form.Item>
-          </Form>
-        </Flex>
-      </Flex>
+      {data.length > 0 && <ChatLine />}
+      <FormInput />
     </div>
   )
 }

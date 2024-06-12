@@ -1,15 +1,7 @@
-$ruler: 16px;
 $color-red: #ae1100;
 $color-bg: #ebecf0;
 $color-shadow: #babecc;
 $color-white: #fff;
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
 
 body,
 html {
@@ -24,7 +16,15 @@ textarea,
 .button {
   font-family: "Montserrat", sans-serif !important;
   letter-spacing: -0.2px !important;
-  font-size: $ruler !important;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 div,
@@ -33,24 +33,10 @@ p {
   text-shadow: 1px 1px 1px $color-white;
 }
 
-form {
-  padding: $ruler;
-  width: $ruler * 20;
-  margin: 0 auto;
-}
-
-.segment {
-  padding: $ruler * 2 0;
-  text-align: center;
-}
-
 .button,
 .input {
   border: 0 !important;
   outline: 0 !important;
-  font-size: $ruler !important;
-  // border-radius: ;
-  padding: $ruler !important;
   background-color: $color-bg !important;
   text-shadow: 1px 1px 0 $color-white !important;
   &:hover {
@@ -61,16 +47,9 @@ form {
   }
 }
 
-label {
-  display: block;
-  margin-bottom: $ruler * 1.5;
-  width: 100%;
-}
-
 .input {
-  // margin-right: $ruler/2 !important;
   box-shadow: inset 2px 2px 5px $color-shadow, inset -5px -5px 10px $color-white !important;
-  width: 100% !important;
+  width: 60vw !important;
   box-sizing: border-box !important;
   transition: all 0.2s ease-in-out !important;
   appearance: none !important;
@@ -99,26 +78,6 @@ label {
 
   &:active {
     box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white !important;
-  }
-
-  .icon {
-    margin-right: $ruler/2;
-  }
-
-  &.unit {
-    border-radius: $ruler/2;
-    line-height: 0;
-    width: $ruler * 3;
-    height: $ruler * 3;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 $ruler/2;
-    font-size: $ruler * 1.2;
-
-    .icon {
-      margin-right: 0;
-    }
   }
 
   &.red {

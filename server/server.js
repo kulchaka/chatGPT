@@ -12,14 +12,15 @@ const openAi = new OpenAI({
 })
 
 app.use(cors())
+app.use(express.json())
 
 app.post("/data", async (req, res) => {
+  const { content } = req.body.message
   try {
     const chatCompletion = await openAi.chat.completions.create({
-      messages: [{ role: "user", content: "Say this is a test" }],
+      messages: [{ role: "user", content }],
       model: "gpt-3.5-turbo",
     })
-    console.log("💡 ~ app.post ~ chatCompletion:", chatCompletion)
     res.json(chatCompletion.choices[0].message)
   } catch (error) {
     console.error("Error:", error)

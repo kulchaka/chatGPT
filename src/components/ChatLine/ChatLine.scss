@@ -1,0 +1,38 @@
+.timeline {
+  height: 70em;
+  overflow: overlay;
+}
+
+.p-animate {
+  color: rgb(104, 104, 104);
+  // margin: 10px 0 0 0px;
+  // white-space: nowrap;
+  // overflow: hidden;
+  width: 40em;
+  // animation: type 1s steps(60, end);
+  // word-wrap: break-word; /* Allows long words to be broken and wrapped to the next line */
+  // word-break: break-all; /* Breaks words at any character to prevent overflow */
+  white-space: pre-wrap;
+}
+
+// .p-animate:nth-child(2) {
+//   animation: type2 4s steps(60, end);
+// }
+
+// @keyframes type {
+//   from {
+//     width: 0;
+//   }
+// }
+
+// @keyframes type2 {
+//   0% {
+//     width: 0;
+//   }
+//   50% {
+//     width: 0;
+//   }
+//   100% {
+//     width: 100;
+//   }
+// }
